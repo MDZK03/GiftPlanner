@@ -1,0 +1,13 @@
+package org.minhduc.giftplanner.ui.views.person_detail
+
+import androidx.compose.runtime.Composable
+
+/**
+ * Created by Minh Duc on 06/01/2025.
+ * Copyright (c) 2024 Minh Duc. All rights reserved.
+ */
+
+@Composable
+fun PersonPrefs() {
+
+}

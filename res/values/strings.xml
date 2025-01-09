@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GiftPlanner</string>
+    <string name="main_title">Gift Planner</string>
+
+    <string name="nav_home">Main Page</string>
+    <string name="nav_people">People List</string>
+    <string name="nav_gift">Gift List</string>
+
+    <string name="create_person">Create &amp; Add Person</string>
+    <string name="edit_person">Edit Person</string>
+
+    <string name="detail_person">Person Detail</string>
+    <string name="detail_gift">Gift Detail</string>
+</resources>
