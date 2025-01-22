@@ -7,8 +7,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalDrawerSheet
@@ -32,6 +30,7 @@ import kotlinx.coroutines.launch
 import org.minhduc.giftplanner.R
 import org.minhduc.giftplanner.ui.Screen
 import org.minhduc.giftplanner.ui.base.BottomBar
+import org.minhduc.giftplanner.ui.base.CommonUtils.SmallMenu
 import org.minhduc.giftplanner.ui.base.TopBar
 import org.minhduc.giftplanner.ui.items
 
@@ -44,7 +43,7 @@ import org.minhduc.giftplanner.ui.items
 fun MainView(navController: NavController) {
     val scope = rememberCoroutineScope()
     var isPeopleList by rememberSaveable { mutableStateOf(true) }
-    var showCreateOptions by rememberSaveable { mutableStateOf(false) }
+    var showOptions by rememberSaveable { mutableStateOf(false) }
 
     var selectedItemIndex = 0
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -81,7 +80,7 @@ fun MainView(navController: NavController) {
             topBar = {
                 TopBar(isMain = true,
                     isCreate = false,
-                    title = stringResource(id = R.string.main_title),
+                    title = stringResource(id = R.string.tlt_main),
                     onNavIconClicked = {
                         scope.launch {
                             drawerState.apply { if (isClosed) open() else close() }
@@ -95,24 +94,20 @@ fun MainView(navController: NavController) {
                 }
             },
             floatingActionButton = {
-                FloatingActionButton(onClick = { showCreateOptions = true }) {
+                FloatingActionButton(onClick = { showOptions = true }) {
                     Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
-                    DropdownMenu(
-                        expanded = showCreateOptions,
-                        onDismissRequest = { showCreateOptions = false }) {
-                        DropdownMenuItem(
-                            text = { Text("Add Person") },
-                            onClick = {
-                                navController.navigate(Screen.CreateEditPersonScreen.route + "/0")
-                                showCreateOptions = false
-                            })
-                        DropdownMenuItem(
-                            text = { Text("Add Gift") },
-                            onClick = {
-                                navController.navigate(Screen.PersonDetailScreen.route)
-                                showCreateOptions = false
-                            })
-                    }
+                    val default = 0L
+                    SmallMenu(showOptions, stringResource(id = R.string.btn_add_person), stringResource(id = R.string.btn_add_gift),
+                        { showOptions = false },
+                        {
+                            navController.navigate(Screen.CreateEditPersonScreen.route + "/$default")
+                            showOptions = false
+                        },
+                        {
+                            navController.navigate(Screen.PersonDetailScreen.route)
+                            showOptions = false
+                        }
+                    )
                 }
             }
         ) { padValue ->
@@ -120,7 +115,7 @@ fun MainView(navController: NavController) {
                 modifier = Modifier.padding(padValue)
             ) {
                 if (isPeopleList) {
-
+                    PeopleListView(navController)
                 } else {
 
                 }

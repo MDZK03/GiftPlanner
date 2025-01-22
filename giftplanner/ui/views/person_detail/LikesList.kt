@@ -49,9 +49,5 @@ fun LikesList(id: Long) {
         Text(text = "Favorite Hobbies: ")
         Text(text = "Favorite Food: ")
         Text(text = "Favorite Films: ")
-
-        FloatingActionButton(onClick = { /*TODO*/ }) {
-            Icon(imageVector = Icons.Default.Edit, contentDescription = "Edit Likes")
-        }
     }
 }

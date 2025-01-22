@@ -5,6 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import org.minhduc.giftplanner.database.dislikes.Dislike
+import org.minhduc.giftplanner.database.dislikes.DislikeDao
 import org.minhduc.giftplanner.database.likes.Like
 import org.minhduc.giftplanner.database.likes.LikeDao
 import org.minhduc.giftplanner.database.person.Person
@@ -16,12 +18,13 @@ import org.minhduc.giftplanner.database.person.PersonDao
  */
 
 @Database(
-    entities = [(Person::class), (Like::class)],
+    entities = [(Person::class), (Like::class), (Dislike::class)],
     version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun personDao(): PersonDao
     abstract fun likeDao(): LikeDao
+    abstract fun dislikeDao(): DislikeDao
 
     companion object {
         @Volatile

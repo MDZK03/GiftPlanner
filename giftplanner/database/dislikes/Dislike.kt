@@ -1,4 +1,4 @@
-package org.minhduc.giftplanner.database.likes
+package org.minhduc.giftplanner.database.dislikes
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
@@ -15,7 +15,7 @@ import org.minhduc.giftplanner.database.person.Person
 
 @Parcelize
 @Entity(
-    tableName = "likes_table",
+    tableName = "dislikes_table",
     foreignKeys = [
         (
             ForeignKey(
@@ -27,12 +27,12 @@ import org.minhduc.giftplanner.database.person.Person
         )
     ]
 )
-data class Like(
+data class Dislike(
     @PrimaryKey(autoGenerate = true) val id: Long = 0L,
     @ColumnInfo(name = "uId") val uId: Long,
     @ColumnInfo(name = "colors") val colors: List<String>,
-    @ColumnInfo(name = "hobbies") val hobbies: List<String>,
-    @ColumnInfo(name = "food") val food: List<String>,
+    @ColumnInfo(name = "activities") val activities: List<String>,
+    @ColumnInfo(name = "allergies") val allergies: List<String>,
     @ColumnInfo(name = "films") val films: List<String>,
     @ColumnInfo(name = "books") val books: List<String>,
 ) : Parcelable

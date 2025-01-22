@@ -23,5 +23,4 @@ class LikeRepoImpl @Inject constructor(private val likeDao: LikeDao): LikeRepo {
     override fun deleteLikeById(id: Long) { likeDao.deleteLikeById(id) }
 
     override fun getLike(id: Long): Flow<Like> = likeDao.getLike(id)
-
 }

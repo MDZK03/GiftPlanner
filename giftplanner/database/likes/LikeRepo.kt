@@ -3,7 +3,6 @@ package org.minhduc.giftplanner.database.likes
 import kotlinx.coroutines.flow.Flow
 
 interface LikeRepo {
-
     suspend fun insertLike(like: Like)
 
     fun getLikeList(): Flow<List<Like>>

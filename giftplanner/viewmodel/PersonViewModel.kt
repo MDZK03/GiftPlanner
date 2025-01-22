@@ -1,8 +1,8 @@
 package org.minhduc.giftplanner.viewmodel
 
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -30,13 +30,15 @@ class PersonViewModel @Inject constructor(private val repository: PersonRepo): V
     }
 
     var personNameState by mutableStateOf("")
-    fun onNameChanged(newName: String) { personNameState = newName}
+    fun onNameChanged(nName: String) { personNameState = nName }
 
-    var dobState by mutableStateOf("")
-    fun onDobChanged(newName: String) { personNameState = newName}
+    var dobState by mutableLongStateOf(0L)
 
-    var relationshipState by mutableStateOf("")
-    fun onRelationshipChanged(newName: String) { personNameState = newName}
+    var dobStringState by mutableStateOf("Not set")
+    fun onDobChanged(nDob: String) { dobStringState = nDob }
+
+    //change to mutableStateFlow
+    var relationshipState by mutableStateOf("Not set")
 
     fun insert(person: Person) = viewModelScope.launch(Dispatchers.IO) { repository.insertPerson(person) }
 
@@ -47,5 +49,4 @@ class PersonViewModel @Inject constructor(private val repository: PersonRepo): V
     fun deleteById(id: Long) = viewModelScope.launch(Dispatchers.IO) { repository.deleteById(id) }
 
     fun getPerson(id: Long): Flow<Person> { return repository.getPerson(id) }
-
 }

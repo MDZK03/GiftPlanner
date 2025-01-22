@@ -2,6 +2,7 @@ package org.minhduc.giftplanner.ui.base
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -46,7 +47,7 @@ fun TopBar(
             colors = TopAppBarDefaults.topAppBarColors(containerColor = Green80),
             navigationIcon = {
                 IconButton(onClick = { onNavIconClicked() }) {
-                    Icon(Icons.AutoMirrored.Default.ArrowBack, "Menu", tint = Color.White)
+                    Icon(Icons.Filled.Close, "Menu", tint = Color.White)
                 }
             }
         )
@@ -72,7 +73,7 @@ fun TopBar(
 @Preview
 @Composable
 fun PreviewTB() {
-    TopBar(isMain = false, isCreate = true, title = stringResource(id = R.string.detail_person), {}, {}) {
+    TopBar(isMain = false, isCreate = true, title = stringResource(id = R.string.tlt_detail_person), {}, {}) {
 
     }
 }
