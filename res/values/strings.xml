@@ -1,14 +1,25 @@
 <resources>
     <string name="app_name">GiftPlanner</string>
-    <string name="main_title">Gift Planner</string>
+    <string name="tlt_main">Gift Planner</string>
 
     <string name="nav_home">Main Page</string>
     <string name="nav_people">People List</string>
     <string name="nav_gift">Gift List</string>
+    <string name="des_empty_list">There\'s nothing here yet! Add some %1$s and they will show up here!</string>
 
-    <string name="create_person">Create &amp; Add Person</string>
-    <string name="edit_person">Edit Person</string>
+    <string name="tlt_create_person">Create &amp; Add Person</string>
+    <string name="des_person_name">Real names not necessary, nicknames are fine too.</string>
+    <string name="btn_open_album">Choose from Album</string>
+    <string name="btn_take_pic">Take a Picture</string>
+    <string name="alert_required">%1$s must not be empty!</string>
 
-    <string name="detail_person">Person Detail</string>
-    <string name="detail_gift">Gift Detail</string>
+    <string name="tlt_add_like">Add %1$s\'s Favorites</string>
+    <string name="tlt_edit_like">Edit %1$s\'s Favorites</string>
+
+    <string name="tlt_detail_person">Person Detail</string>
+    <string name="tlt_edit_person">Edit Person</string>
+    <string name="btn_add_person">Add Person</string>
+
+    <string name="tlt_detail_gift">Gift Detail</string>
+    <string name="btn_add_gift">Add Gift</string>
 </resources>
