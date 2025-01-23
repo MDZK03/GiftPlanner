@@ -1,0 +1,3 @@
+change uId to name
+encrypt name(?)
+include/exclude gift?
